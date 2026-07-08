@@ -166,6 +166,6 @@ Week 01 → Success Mindset
 If you found this repo useful or want to follow my DevOps journey:
 
 - ⭐ Star this repo
-- 🔗 Connect with me on [LinkedIn](#)
+- 🔗 Connect with me on [LinkedIn]([#](https://www.linkedin.com/in/solaibinuolapo))
 - 🌐 Learn more about the program: https://dmi.pravinmishra.com
 - 💬 Join the community: https://discord.pravinmishra.com
