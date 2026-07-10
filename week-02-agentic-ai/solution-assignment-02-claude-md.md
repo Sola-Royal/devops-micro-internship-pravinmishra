@@ -20,7 +20,9 @@ Capture Claude’s response before `CLAUDE.md` exists in the project to establis
 
 #### Screenshot 1 — Claude’s generic response before CLAUDE.md exists (project contains only `index.html`, `style.css`, `images/`, `README.MD`, `privacy.html`, `terms.html`)
 
-Add your screenshot here.
+![before.Claude](image-11.png)
+`Deployment step`
+![alt text](image-12.png)
 
 ---
 
@@ -34,8 +36,9 @@ Generate an initial `CLAUDE.md` file using the `/init` command and review the au
 
 #### Screenshot 2 — The auto-generated CLAUDE.md open in VS Code showing its content
 
-Add your screenshot here.
-
+![alt text](image-13.png)
+![alt text](image-14.png)
+![alt text](image-15.png)
 ---
 
 # Task 3 — Customize the CLAUDE.md
@@ -48,7 +51,7 @@ Update the generated `CLAUDE.md` file by adding project-specific instructions ac
 
 #### Screenshot 3 — Your customized CLAUDE.md in VS Code showing all 5 sections (scroll to show the full file)
 
-Add your screenshot here.
+![alt text](image-16.png)
 
 ---
 
@@ -62,13 +65,13 @@ Verify that Claude’s behavior changes after adding `CLAUDE.md` by running a ne
 
 #### Screenshot 4 — Claude's specific, detailed answer after reading CLAUDE.md (Claude mentioning S3, CloudFront and Terraform)
 
-Add your screenshot here.
+![alt text](image-17.png)
 
 ---
 
 #### Screenshot 5 — Claude refusing or warning against adding React because of the "No JavaScript" convention defined in CLAUDE.md
 
-Add your screenshot here.
+![alt text](image-18.png)
 
 ---
 
@@ -98,7 +101,7 @@ Add your screenshot here.
 
 Paste your forked repository URL here:
 
-`__________________________`
+[The Github link](https://github.com/Sola-Royal/Ultimate-Agentic-DevOps-with-Claude-Code)
 
 ---
 

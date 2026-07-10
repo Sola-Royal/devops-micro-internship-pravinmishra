@@ -20,7 +20,7 @@ Create the `.claude/agents/` directory and add all required agent files.
 
 #### Screenshot 1 — VS Code sidebar showing `.claude/agents/` with all 3 files
 
-Add your screenshot here.
+![alt text](image-27.png)
 
 ---
 
@@ -34,19 +34,23 @@ Analyze the configuration differences between the three agents and demonstrate u
 
 #### 1. Why does the cost optimizer use Haiku instead of Sonnet?
 
-Add your answer here...
+Cost review is pattern-matching against a fixed checklist (price class, storage class, TTL, lifecycle rules) rather than deep reasoning — reading Terraform files and mapping known configs to known cost-saving alternatives. Haiku is fast and cheap enough for that kind of structured, repetitive check, so there's no need to pay Sonnet's higher cost for it
 
 ---
 
 #### 2. Why does the security auditor NOT have Write in its tools list?
 
-Add your answer here...
+Its job is to audit and report, not modify code. Tools are Read, Grep, Glob — read-only, so it can inspect the Terraform files and flag issues, but it can't silently change security-critical infrastructure code itself. Any fix it proposes goes back to a human (or to tf-writer) to actually apply, keeping a review/approval step between "finding an issue" and "changing the code" — important for something as consequential as security config.
 
 ---
 
 #### 3. Why does the tf-writer use `inherit` instead of a specific model?
 
-Add your answer here...
+`model: inherit` means it uses whatever model is driving the parent session/conversation, rather than being pinned to one tier. This makes sense for a code-generation agent because:
+
+Code generation benefits from the strongest reasoning available when the task is complex, but doesn't need to be locked to always-Sonnet if the parent session is running a lighter or heavier model.
+It keeps behavior consistent with the user's active session — if you're working in Sonnet, tf-writer generates code at that same reasoning level, rather than silently downgrading or upgrading.
+Unlike cost-optimizer/security-auditor (which have fixed, well-scoped tasks suited to a fixed model), tf-writer's output quality directly depends on reasoning depth for things like `locals`, validation logic, and best-practice tradeoffs — so it inherits rather than assumes a fixed tier is always right.
 
 ---
 
@@ -54,13 +58,13 @@ Add your answer here...
 
 #### Screenshot 2 — `security-auditor.md` frontmatter showing model and tools configuration
 
-Add your screenshot here.
+![alt text](image-28.png)
 
 ---
 
 #### Screenshot 3 — `cost-optimizer.md` frontmatter showing the model and tools configuration
 
-Add your screenshot here.
+![alt text](image-29.png)
 
 ---
 
@@ -74,13 +78,12 @@ Trigger the security auditor agent and analyze the generated security report for
 
 #### Screenshot 4 — The delegation message showing Claude launched the security-auditor
 
-Add your screenshot here.
-
+![alt text](image-31.png)
 ---
 
 #### Screenshot 5 — Security audit report output
 
-Add your screenshot here.
+![alt text](image-30.png)
 
 ---
 
@@ -94,7 +97,8 @@ Trigger the cost optimizer agent and review the generated cost optimization repo
 
 #### Screenshot 6 — The full cost optimization report
 
-Add your screenshot here.
+![alt text](image-32.png)
+![alt text](image-33.png)
 
 ---
 
@@ -110,7 +114,7 @@ Add your screenshot here.
 
 Paste your forked repository URL here:
 
-`__________________________`
+[`GitHub Subagent repo added`](https://github.com/Sola-Royal/Ultimate-Agentic-DevOps-with-Claude-Code)
 
 ---
 
