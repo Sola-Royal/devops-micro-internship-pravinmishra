@@ -72,8 +72,8 @@ Week 00 → Internet & Networking Basics
 Week 01 → Success Mindset
 [![Week 01 – Mindset](./badges/week-01.svg)](./week-01-success-mindset/)
 
-<!-- Week 02 → Agentic AI with Claude Code -->
-<!-- [![Week 02 – Agentic AI](./badges/week-02.svg)](./week-02-agentic-ai/) -->
+Week 02 → Agentic AI with Claude Code
+[![Week 02 – Agentic AI](./badges/week-02.svg)](./week-02-agentic-ai/)
 
 <!-- Week 03 → Linux for DevOps -->
 <!-- [![Week 03 – Linux](./badges/week-03.svg)](./week-03-linux-for-devops/) -->
@@ -134,7 +134,7 @@ Week 01 → Success Mindset
 |------|-------|--------|------------|---------------|-----------|
 | 00 | Internet & Networking Basics | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/solaibinuolapo_kodecampbuilds-kodecamp-kodehauz-activity-7451661432867385344-9dCE?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://www.linkedin.com/posts/solaibinuolapo_excited-to-share-that-ive-been-selected-activity-7473637549505404928-pD4-?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM |
 | 01 | Success Mindset | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/solaibinuolapo_techleadership-cloudcomputing-devops-share-7478719953358028800-3-S0/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://medium.com/@hesolaroyal/unveiling-my-2-0-self-the-journey-of-total-resetting-a7037c36520e?sharedUserId=hesolaroyal | https://www.linkedin.com/posts/solaibinuolapo_techleadership-cloudcomputing-devops-activity-7478728009441726464-JRmr?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://medium.com/@hesolaroyal/the-technocrat-of-the-sunshine-state-how-a-devops-engineer-is-re-architecting-public-governance-ace8ce8a66d5?sharedUserId=hesolaroyal |
-| 02 | Agentic AI with Claude Code | ⬜ Not Started | ⏳ Pending | — | — |
+| 02 | Agentic AI with Claude Code | ✅ Completed  | ✅ Solved | https://www.linkedin.com/posts/solaibinuolapo_techleadership-cloudcomputing-devops-share-7483045008934219776-OrVL/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://medium.com/@hesolaroyal/dmi-cohort-3-reflection-week-2-9f3e1dc2128e?sharedUserId=hesolaroyal |
 | 03 | Linux for DevOps | ⬜ Not Started | ⏳ Pending | — | — |
 | 04 | Bash Scripting | ⬜ Not Started | ⏳ Pending | — | — |
 | 05 | Git & GitHub | ⬜ Not Started | ⏳ Pending | — | — |
