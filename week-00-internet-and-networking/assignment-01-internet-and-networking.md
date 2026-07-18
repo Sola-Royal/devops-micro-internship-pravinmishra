@@ -25,7 +25,9 @@ Take a screenshot of your interaction showing:
 
 Save your screenshot in the `screenshots` folder and update the file name below.
 
-![Task 1 Screenshot](screenshots/task-1-chatgpt.png)
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
 
 
 Replace `task-1-chatgpt.png` with your actual screenshot file name.
@@ -34,7 +36,8 @@ Replace `task-1-chatgpt.png` with your actual screenshot file name.
 
 ## What I Learned (2–3 lines)
 
-Add your answer here...
+I learned that there can be a connection without communication, which does not profit both sides because they do not understand each other. It is profitable when both sides can communicate and give an accurate answer to each other's prompts.
+
 
 ---
 
@@ -59,7 +62,9 @@ Write a short explanation (**100–150 words**) that includes:
 
 ## Answer
 
-Add your answer here...
+When a customer in Nigeria opens a browser and types www.epicreads.com, the request is sent across the internet using packet switching. The data is broken into small packets that travel through different networks until they reach the `EpicReads` server hosted in Finland. Each packet contains the server’s IP address, which uniquely identifies the Finland server and ensures the data reaches the correct destination.
+
+The communication follows the `TCP/IP model`. `IP` is responsible for routing the packets across countries and networks, while TCP makes sure all packets arrive completely and in the correct order. To display the website, the browser uses `HTTP or HTTPS` to request the web pages. HTTPS encrypts the data, keeping the user’s information secure while accessing EpicReads globally.
 
 ---
 
@@ -91,7 +96,7 @@ EpicReads bookstore has two application versions:
 
 Save your diagram image in the `screenshots` folder and update the file name below.
 
-![Application Architecture Diagram](screenshots/task-3-diagram.png)
+![alt text](image-3.png)
 
 
 Replace `task-3-diagram.png` with your actual diagram file name.
@@ -102,18 +107,21 @@ Replace `task-3-diagram.png` with your actual diagram file name.
 
 ### Frontend
 
-* Add your answer here...
-* Add your answer here...
+* HTML
+* CSS 
+* JavaScript
+* React Native
 
 ### Backend
 
-* Add your answer here...
-* Add your answer here...
+* Node.js Wwith express
+* Python
+* Django
 
 ### Database
 
-* Add your answer here...
-* Add your answer here...
+* MongoDB
+* PostgressSQL
 
 ---
 
@@ -142,7 +150,11 @@ In **50–100 words**, explain in your own words:
 
 ## Answer
 
-Add your answer here...
+
+DNS (Domain Name System) is essentially the phonebook of the internet. It translates human-readable domain names (like epicreads.com) into the numerical IP addresses (like `52.172.142.222`) that computers use to identify each other on the network.
+To connect the domain to the IP, you should use an `A Record (Address Record)`. This is the standard DNS record type specifically designed to map a domain name directly to an IPv4 address.
+Note: DNS resolves the IP address, but it does not handle port numbers like :3000. To remove the port from the URL, you would typically use a reverse proxy like Nginx on the server.
+
 
 ---
 
@@ -178,7 +190,8 @@ ls
 
 Save your screenshot in the `screenshots` folder and update the file name below.
 
-![VS Code Setup Screenshot](screenshots/task-5-vscode.png)
+![alt text](image-4.png)
+![alt text](image-5.png)
 
 
 Replace `task-5-vscode.png` with your actual screenshot file name.
@@ -218,7 +231,7 @@ Add the following credit note at the end of your post:
 Paste your LinkedIn post URL here:
 
 ```text
-Add your URL here...
+https://www.linkedin.com/posts/solaibinuolapo_homepage-activity-7414412360020631552-vOmb?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM
 ```
 
 ---
@@ -227,7 +240,30 @@ Add your URL here...
 
 Paste the full text of your LinkedIn post here:
 
-Add your post content here...
+🚀 Understanding the Basics of Internet, Networking & Application Architecture, etc.
+
+Learning complex tech concepts becomes easier when broken down into simple explanations. Tools like ChatGPT help explain networking, internet communication, and system design in a clear, beginner-friendly way, making learning more accessible for students and professionals.
+
+Internet & Networking
+When users around the world access a website like EpicReads, their requests travel across the internet using packet switching. Each device uses an IP address for identification, while TCP/IP ensures data is delivered accurately and in order. HTTP/HTTPS allows browsers to request and securely receive web content, enabling global access regardless of location.
+
+Application Architecture 
+We explored two ways to structure the EpicReads app:
+Two-Tier (MVP): Great for speed. Frontend talks directly to a BaaS like Firebase.
+Three-Tier (Scalable): The industry standard. We separated concerns into Frontend (React/Flutter), Backend (Node.js/Django), and Database (PostgreSQL). This adds security and better logic handling.
+
+🌐DNS (Domain Name System) is essentially the phonebook of the internet. It translates human-readable domain names (like epicreads.com) into the numerical IP addresses (like 52.172.142.222) that computers use to identify each other on the network.
+A Record: The specific record used to map our domain to the server's IP address.
+
+Reverse Proxy: We discussed using Nginx to forward traffic from port 80 to 3000, so users don't have to type ugly port numbers in the URL!
+
+💻 VS Code Setup To build this efficiently, a solid dev environment is key. My VS Code is geared up with:
+Prettier & ESLint: For clean, consistent code.
+Thunder Client: for testing APIs directly in the editor.
+
+P.S. This post is part of the FREE DevOps Micro Internship Cohort run by Pravin Mishra. You can start your DevOps journey for free from his YouTube Playlist.
+
+hashtag#DevOps hashtag#LearningJourney hashtag#Tech
 
 ---
 
@@ -235,19 +271,18 @@ Add your post content here...
 
 ### What did you find easy?
 
-Add your answer here...
+Everything I did, i already have a little knowledge about the information requested for, so it is like i am reversing
 
 ---
 
 ### What was difficult?
 
-Add your answer here...
-
+Nothing, I could not even think of any difficulty at all
 ---
 
 ### What will you improve next week?
 
-Add your answer here...
+To act faster, and improvement my speed. To stop proscatination
 
 ---
 
