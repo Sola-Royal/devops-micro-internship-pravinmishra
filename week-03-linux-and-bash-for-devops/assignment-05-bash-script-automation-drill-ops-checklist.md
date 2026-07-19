@@ -42,12 +42,12 @@ echo "Sola is a DMI student"
 echo "DMI is in week 3 now"
 echo "Sola wants to be the champion of the week and get excited"
 
-
 ---
 
 **2. What is the difference between shell and Bash?**
 
 Shell is a program that act as a bridge between user and the operating system while bash is one specific type of shell program. shell understand shebang as a unique identifier for bash. once the shell read `#!/bin/bash`, the interpreter knows the commands is coming from bash script.
+
 ---
 
 **3. Why is it important to confirm the Bash version before writing scripts?**
@@ -179,12 +179,14 @@ Answer the following in your own words:
 
 An array in Bash is a variable that can hold multiple values at once, instead of just a single value like a normal variable. Each value in the array is stored at a specific position, called an index, starting from 0.
 example creating an array `tools=("bash" "nano" "chmod" "echo" "ls" "pwd")`
+
 ---
 
 **2. Why are arrays useful in scripts?**
 
 it help us to avoid repetitive variable task.
 Arrays let us store and manage a list of related values under one variable name, instead of creating a separate variable for each one. This makes scripts shorter, more organized, and much easier to work with when dealing with multiple items.
+
 ---
 
 **3. What does `"${tools[@]}"` mean?**
@@ -425,15 +427,12 @@ The script uses variables to store my name, the assignment title, and the file/d
 
 Paste your LinkedIn post URL here:
 
-`__________________________`
-
----
-re.
+https://www.linkedin.com/posts/solaibinuolapo_devops-bash-linux-share-7484646173170012160-fOI4/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM
 
 ---
 #### Screenshot — Published LinkedIn post
 
-Add your screenshot he
+![alt text](image-94.png)
 
 # Submission Instructions
 

@@ -120,13 +120,13 @@ Verify the deployed website and Nginx service are healthy.
 
 Paste your LinkedIn post URL here:
 
-`__________________________`
+https://www.linkedin.com/posts/solaibinuolapo_devops-cloudengineering-nginx-activity-7484641908565250048-Ju-r?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM
 
 ---
 
 #### Screenshot — Published LinkedIn post showing the live website with your Full Name in the footer
 
-Add your screenshot here.
+![alt text](image-93.png)
 
 ---
 

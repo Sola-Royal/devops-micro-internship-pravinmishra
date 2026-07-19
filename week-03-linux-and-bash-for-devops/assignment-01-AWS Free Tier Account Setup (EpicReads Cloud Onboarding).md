@@ -20,7 +20,7 @@ Demonstrate understanding of AWS basics and Free Tier usage by answering the fol
 
 #### Question 1 — What is an AWS account, and why do you need it at this stage?
 
-Write your answer here.
+AWS account is very import for cloud computing services. its needed at this stage to deploy some applications, and to get my assignment done. We will be also make use some services on it but right now we EC2 instance VM machine.
 
 ---
 

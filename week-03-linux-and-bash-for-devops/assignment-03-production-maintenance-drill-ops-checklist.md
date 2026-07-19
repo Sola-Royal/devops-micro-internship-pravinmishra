@@ -56,6 +56,7 @@ Answer the following in your own words:
 
 For us to be able to connect to our local machine using EC2 instance means `port 22` is acrive. showing the server nd username like this "ubuntu@ip-172-**-44-27:~$". 
 secondly, using this command `sudo ss -tulpen` also give us proof of its active listening to port 22, and `sshd` is reachable and working.
+
 ---
 
 **3. Did you find any unexpected open ports? Explain briefly.**
@@ -306,13 +307,13 @@ I remove the server port `80`, immediately it is saying error... and when i adde
 
 **2. How did you fix the issue?**
 
-Write your answer here.
+I use `sudo nano /etc/nginx/sites-available/default` to check the configuration, and when i spot the error, I resolved it. I make sure none of the syntax was missing. 
 
 ---
 
 **3. How can you avoid this kind of issue in real production systems?**
 
-I use `sudo nano /etc/nginx/sites-available/default` to check the configuration, and when i spot the error, I resolved it. I make sure none of the syntax was missing.
+I must make sure all the important health check is done before deploying any application to production. all the networking activities would have been done no matter what before deployed
 
 ---
 
@@ -344,11 +345,7 @@ Answer the following in your own words:
 
 The application broke because of a syntax error introduced while editing the nginx configuration file. After running `sudo nano /etc/nginx/sites-available/default` to make a change, testing the config with `sudo nginx -t` returned:
 
-
-
 nginx: [emerg] invalid number of arguments in "listen" directive in /etc/nginx/sites-enabled/default:2
-
-
 
 This means the `listen` directive on line 2 of the config file had the wrong number of arguments — most likely something like a missing semicolon, an extra or missing value after listen, or a stray character accidentally typed while editing. Because nginx failed its own configuration test, when `sudo systemctl restart nginx` was run, the restart failed too ("Job for nginx.service failed because the control process exited with error code"), and the site briefly went completely down — confirmed by:
 
@@ -436,13 +433,13 @@ there are several reasons why Nginx to be enabled on boot:
 
 Paste your LinkedIn post URL here:
 
-`__________________________`
+https://www.linkedin.com/posts/solaibinuolapo_devops-cloudengineering-nginx-share-7484636857381654529-aKUk/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM
 
 ---
 
 #### Screenshot — Published LinkedIn post
 
-Add your screenshot here.
+![alt text](image-92.png)
 
 ---
 

@@ -214,16 +214,16 @@ Choose books that improve:
 
 ## Book List
 
-1. Atomic Habits – James Clear
-2. The versatile Leader - Msuega Tese
-3. Success System - David Oyedepo
-4. Purpose Driven Life - Rick Warren
-5. The psychology of money - Morgan Housel
-6. Leadership ideology - David Pyedepo
-7. The 7 Habits of Highly Effective People - Stephen R. Covey
-8. Mind management, not time management - David Kadavy
-9. Deep work - Cal Newport
-10. The compound effect - Darren Hardy 
+1. Atomic Habits – James Clear ![alt text](image.png)
+2. The versatile Leader - Msuega Tese ![alt text](image-1.png)
+3. Success System - David Oyedepo ![alt text](image-2.png)
+4. Purpose Driven Life - Rick Warren ![alt text](image-3.png)
+5. The psychology of money - Morgan Housel ![alt text](image-4.png)
+6. Leadership ideology - David Pyedepo ![alt text](image-5.png)
+7. The 7 Habits of Highly Effective People - Stephen R. Covey ![alt text](image-6.png)
+8. Mind management, not time management - David Kadavy <br>![alt text](image-7.png) 
+9. Deep work - Cal Newport ![alt text](image-8.png)
+10. The compound effect - Darren Hardy ![alt text](image-10.png)
 
 ---
 

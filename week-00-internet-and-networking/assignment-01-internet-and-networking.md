@@ -25,7 +25,7 @@ Take a screenshot of your interaction showing:
 
 Save your screenshot in the `screenshots` folder and update the file name below.
 
-![alt text](image.png)
+![alt text](image-6.png)
 ![alt text](image-1.png)
 ![alt text](image-2.png)
 

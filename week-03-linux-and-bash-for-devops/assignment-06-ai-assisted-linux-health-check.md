@@ -487,13 +487,13 @@ The AI skill was only given Bash, Read, and Grep tools, with no Write access, so
 
 Paste your LinkedIn post URL here:
 
-`__________________________`
+https://www.linkedin.com/posts/solaibinuolapo_devops-agenticai-claudecode-share-7484649339068469248-1PzF/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM
 
 ---
 
 #### Screenshot — Published LinkedIn post
 
-Add your screenshot here.
+![alt text](image-95.png)
 
 ---
 
@@ -501,7 +501,7 @@ Add your screenshot here.
 
 Paste the URL of your GitHub folder or repository containing the assignment files here:
 
-`__________________________`
+https://github.com/Sola-Royal/devops-micro-internship-pravinmishra/tree/main/week-03-linux-and-bash-for-devops
 
 ---
 
