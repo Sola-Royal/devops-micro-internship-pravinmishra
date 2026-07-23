@@ -326,7 +326,7 @@ Add 3-5 bullet points on what you learned this week.
 
 - Git and GitHub
 - The The git Core analysis
-- The open Source collaborations
+- The open-Source collaborations
 
 ---
 
