@@ -27,7 +27,7 @@ Confirm you are working in your own fork, then create a dedicated branch for thi
 
 #### Screenshot 1 — Output of git remote -v and git branch showing the new branch
 
-Add your screenshot here.
+![alt text](image-62-1.png)
 
 ---
 
@@ -35,7 +35,9 @@ Add your screenshot here.
 
 **1. Why create a dedicated branch instead of doing this work on main?**
 
-Add your answer here.
+The new branch is to perform an operation on the repo and make sure it work perfectly. Before suggesting it to the main branch otherwise it will corrupt the original content.  I need to create the new branch in order not to tamper with with original content.
+A dedicated branch lets me experiment and test the pre-commit hook and 
+the /pr-ready skill without touching the main branch
 
 ---
 
