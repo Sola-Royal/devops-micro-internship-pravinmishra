@@ -184,7 +184,7 @@ Attendance is worth **10 points** for each Saturday session:
 
 You can earn a maximum of **30 attendance points per week**.
 
-**Note:** Attendance grading begins in **Week 4**. **Weeks 1–3 do not include attendance points.**
+**Note:** Attendance grading begins in **Week 2**. **Weeks 0–1 do not include attendance points.**
 
 ### 6. Screenshots
 
@@ -308,14 +308,14 @@ Week-3 is **6 assignment files**, each graded pass/fail — your blog post for t
 
 Week-4 is **5 assignment files**, each graded pass/fail — your blog post for the week is scored separately below, it isn't a 6th assignment file:
 
-| Criteria | Marks |
-|------------------------------------|------:|
-| Post published with correct content | 10 |
-| Required P.S. line included | 5 |
-| Screenshot of post included | 5 |
-| **Total per LinkedIn post** | **20** |
-
----
-
-
-
+| Assignment | Name | Points |
+|------------|------|:------:|
+| Assignment-1 | CodeTrack initial Git setup (local only) | 20 |
+| Assignment-2 | CodeTrack tracking, staging, committing, and deployment to EC2 | 20 |
+| Assignment-3 | CodeTrack branching workflow: Contact page | 20 |
+| Assignment-4 | GitHub account, exploration, and professional profile | 20 |
+| Assignment-5 | GitHub fork, clone, sync, and pull request | 20 |
+| Assignment-6 | Building an AI-Assisted Git Safety Net (PR Ready Check) | 20 |
+| — | LinkedIn post | 10 |
+| — | Blog post | 30 |
+| **Total** | | **160** |
