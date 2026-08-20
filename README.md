@@ -82,8 +82,8 @@ Week 03 → Linux & Bash for DevOps
 Week 04 → Git & GitHub
 [![Week 04 – Git](./badges/week-04.svg)](./week-04-github/)
 
-<!-- Week 05 → DevOps Lifecycle & Agile -->
-<!-- [![Week 05 – Agile](./badges/week-05.svg)](./week-05-devops-lifecycle/) -->
+Week 05 → DevOps Lifecycle & Agile
+[![Week 05 – Agile](./badges/week-05.svg)](./week-05-devops-lifecycle/)
 
 <!-- Week 06 → AWS Cloud -->
 <!-- [![Week 06 – AWS](./badges/week-06.svg)](./week-06-aws-cloud/) -->
@@ -135,7 +135,7 @@ Week 04 → Git & GitHub
 | 02 | Agentic AI with Claude Code | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/solaibinuolapo_techleadership-cloudcomputing-devops-share-7483045008934219776-OrVL/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://medium.com/@hesolaroyal/dmi-cohort-3-reflection-week-2-9f3e1dc2128e?sharedUserId=hesolaroyal |
 | 03 | Linux & Bash for DevOps | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/solaibinuolapo_devops-cloudengineering-nginx-share-7484636857381654529-aKUk/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://hesolaroyal.medium.com/what-breaking-my-own-server-on-purpose-taught-me-about-production-systems-75e47f2f1e1c |
 | 04 | Git & GitHub | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/solaibinuolapo_git-github-opensource-share-7485658788113485824-W0zo/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://hesolaroyal.medium.com/deepening-my-work-on-git-and-github-mastery-ce09dcd2fcbc |
-| 05 | DevOps Lifecycle & Agile | 🔄 In Progress | 🔄 In Progress | https://www.linkedin.com/posts/solaibinuolapo_devops-agile-scrum-share-7493001074711183361-t63H/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://hesolaroyal.medium.com/running-a-real-five-day-sprint-planning-shipping-and-reviewing-like-a-team-89a268b69a61?sharedUserId=hesolaroyal |
+| 05 | DevOps Lifecycle & Agile | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/solaibinuolapo_devops-agile-scrum-share-7493001074711183361-t63H/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://hesolaroyal.medium.com/running-a-real-five-day-sprint-planning-shipping-and-reviewing-like-a-team-89a268b69a61?sharedUserId=hesolaroyal |
 | 06 | AWS Cloud | ⬜ Not Started | ⏳ Pending | — | — |
 | 07 | Azure Cloud | ⬜ Not Started | ⏳ Pending | — | — |
 | 08 | Terraform | ⬜ Not Started | ⏳ Pending | — | — |
