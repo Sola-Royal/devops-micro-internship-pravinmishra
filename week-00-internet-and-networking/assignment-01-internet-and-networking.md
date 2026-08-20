@@ -235,7 +235,10 @@ https://www.linkedin.com/posts/solaibinuolapo_homepage-activity-7414412360020631
 ```
 
 ---
-
+```text
+https://hesolaroyal.medium.com/selected-for-dmi-cohort-3-devops-micro-internship-with-agentic-ai-17d1f2cc071c
+```
+---
 ## LinkedIn Post Backup Copy
 
 Paste the full text of your LinkedIn post here:

@@ -80,7 +80,7 @@ Restart Claude Code and confirm the Jira MCP server shows as connected.
 
 #### Screenshot 4 — `/mcp` output showing `jira: connected`
 
-![alt text](image-59.png)
+![alt text](image-60.png)
 
 ---
 
@@ -94,13 +94,13 @@ Ask Claude to list the issues in your current active sprint through the Jira MCP
 
 #### Screenshot 5 — Claude's response showing the live sprint issue list retrieved via Jira MCP
 
-Add your screenshot here.
+![alt text](image-61.png)
 
 ### Notes You Must Write (Very Important):
 
 How did you confirm this was real board data and not something Claude guessed?
 
-Add your answer here
+Because i checked my jira space/project it was exactly what is there. ehat i have on the sprint is what it show and the same on story including the sprint number
 
 ---
 
@@ -114,21 +114,21 @@ Create a `/sprint-health` skill restricted to read-only Jira tools plus `Read`, 
 
 #### Screenshot 6 — `SKILL.md` frontmatter showing `allowed-tools` limited to read-only Jira tools plus `Read`, with `disable-model-invocation: true`
 
-Add your screenshot here.
+![alt text](image-62.png)
 
 #### Screenshot 7 — `/sprint-health` output showing the full triage report against your real sprint
 
-Add your screenshot here.
+![alt text](image-63.png)
 
 ### Notes You Must Write (Very Important):
 
 1. Which Jira MCP tools does this skill's allowed-tools list include, and which mutating tools (create issue, update issue, transition issue, add comment) does it deliberately exclude?
 
-Add your answer here
+The jira skill's allowed-tools list include  `Jira_search, jira_get_issue, jira_get_sprint, jira_get_board, and built-in Read tools`. And it deliberately exclude every mutating tools like `creates, edits, comments on, or transitions a Jira issue`, because they were not appear on the list. it allows-tools fucntion as the whitelist. it does not even have the capacity to call, and it was even discouraged to call them. the skill has forbiden them already.
 
 2. Why does a Scrum Master need this restriction more than almost any other role in this course?
 
-Add your answer here
+If any mutatating tools is allowed, it can alter changes on the already done work which can affect the progress of the work, from scrum masters to developers. from ticketing it can changes things no meant to change, for example `marking something "Done" or adding a comment` is not something you can detect by which of the member did, meanwhile its the tools that perform it. by not allowing mutating tools, it prevent risk and give credit to the authenticity of the work.
 
 ---
 
@@ -142,13 +142,13 @@ Manually update one ticket on your board in the browser (for example, move a sto
 
 #### Screenshot 8 — Second `/sprint-health` run showing the report now reflects your manual board change
 
-Add your screenshot here.
+![alt text](image-64.png)
 
 ### Notes You Must Write (Very Important):
 
 Map this assignment to Gather → Analyze → Human Act → Verify from Week 3 Assignment 6. Which step did you perform manually in the browser, and why must that step stay human?
 
-Add your answer here
+In `Week 3 Assignment` we use model to write and edit to perform mutate functions. we also use tools to `Gather → Analyze → act, and the human Verify it before it acted. most importantly the aloowing tools perform the function but in this project tools does not perferm any mutating functions, the allow-tools only Gather , and → Human Act and → Verify. it only deal with gathering majorly which is reporting. it does not have anything to acted unpon because those tools are also disabled.
 
 ---
 
