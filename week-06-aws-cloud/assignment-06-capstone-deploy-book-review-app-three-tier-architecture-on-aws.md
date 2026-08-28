@@ -34,13 +34,13 @@ Record the AWS Region used and list every AWS service used across networking, co
 
 **Region:**
 
-Write your answer here.
+Europe (stockholm)
 
 ---
 
 **Services:**
 
-Write your answer here.
+VPC, EC2, Load balancer, Security group, RDS, Mysql database 
 
 ---
 
