@@ -164,13 +164,13 @@ Confirm the application communicates with the RDS database through the ALB DNS n
 
 #### Screenshot 17 — Browser showing the application loaded through the ALB DNS name with the URL visible
 
-Add your screenshot here.
+![alt text](image-50.png)
 
 ---
 
 #### Screenshot 18 — Proof of a database write through a UI message or database query output
 
-Add your screenshot here.
+![alt text](image-51.png)
 
 ---
 
@@ -186,25 +186,25 @@ Test B: simulate an Availability Zone impact (stop, detach, or reduce desired ca
 
 #### Screenshot 19 — EC2 showing the terminated instance and the newly launched instance; timestamps are helpful
 
-Add your screenshot here.
+![alt text](image-52.png)
 
 ---
 
 #### Screenshot 20 — Target group showing healthy targets after replacement
 
-Add your screenshot here.
+![alt text](image-53.png)
 
 ---
 
 #### Screenshot 21 — Evidence that an instance was removed, detached, placed in Standby, or stopped in one Availability Zone
 
-Add your screenshot here.
+![alt text](image-54.png)
 
 ---
 
 #### Screenshot 22 — Browser showing that the ALB DNS endpoint still works during the change
 
-Add your screenshot here.
+![alt text](image-55.png)
 
 ---
 
@@ -218,7 +218,57 @@ Summarize the VPC/subnet layout, the ALB and Auto Scaling Group setup, the priva
 
 #### Screenshot 23 — A simple architecture diagram, which may be hand-drawn, or an AWS console overview showing the components
 
-Add your screenshot here.
+========================================================================================
+                                     AWS CLOUD
+========================================================================================
+┌──────────────────────────────────────────────────────────────────────────────────────┐
+│                                    VIRTUAL PRIVATE CLOUD (VPC)                       │
+│                                                                                      │
+│                           ┌───────────────────────────────────┐                      │
+│                           │      INTERNET GATEWAY (IGW)       │                      │
+│                           └─────────────────┬─────────────────┘                      │
+│                                             │                                        │
+│  ===========================================▼======================================  │
+│  AVAILABILITY ZONE A (AZ-1)                           AVAILABILITY ZONE B (AZ-2)     │
+│  ──────────────────────────────────────────────────   ─────────────────────────────  │
+│  ┌──────────────────────────────────────────────┐   ┌────────────────────────────┐  │
+│  │ PUBLIC SUBNET (Route: 0.0.0.0/0 -> IGW)      │   │ PUBLIC SUBNET              │  │
+│  │                                              │   │                            │  │
+│  │   ┌──────────────────────────────────────┐   │   │                            │  │
+│  │   │  APPLICATION LOAD BALANCER (ALB)     │◄──┼───┼──────────────┐             │  │
+│  │   │  [Sec Group: Allows HTTPS (0.0.0.0/0)]│   │   │              │             │  │
+│  │   └──────────────────┬───────────────────┘   │   │              │             │  │
+│  │                      │                       │   │              │             │  │
+│  │   ┌──────────────────▼───────────────────┐   │   │   ┌──────────▼───────────┐ │  │
+│  │   │ NAT GATEWAY (With Elastic IP attached)│   │   │   │ NAT GATEWAY (Opt.)   │ │  │
+│  │   └──────────────────┬───────────────────┘   │   │   └──────────┬───────────┘ │  │
+│  └──────────────────────┼───────────────────────┘   └──────────────┼─────────────┘  │
+│                         │                                          │                 │
+│  ───────────────────────┼────────────────────────   ───────────────┼──────────────  │
+│  ┌──────────────────────▼───────────────────────┐   ┌──────────────▼─────────────┐  │
+│  │ PRIVATE APP SUBNET (Route: 0.0.0.0/0 -> NAT) │   │ PRIVATE APP SUBNET         │  │
+│  │                                              │   │                            │  │
+│  │   ┌───────────────────────────────────────────────────────────────────────┐  │  │
+│  │   │                        AUTO SCALING GROUP (ASG)                       │  │  │
+│  │   │                                                                       │  │  │
+│  │   │ ┌───────────────────────────┐            │   │ ┌────────────────────┐ │  │  │
+│  │   │ │ EC2 Instance              │            │   │ │ EC2 Instance       │ │  │  │
+│  │   │ │ [Sec Group: Allows ALB]   │            │   │ │ [Sec Group: ALB]   │ │  │  │
+│  │   │ └───────────────────────────┘            │   │ └────────────────────┘ │  │  │
+│  │   └───────────────────────────────────────────────────────────────────────┘  │  │
+│  └──────────────────────────────────────────────┘   └────────────────────────────┘  │
+│                                                                                      │
+│  ────────────────────────────────────────────────   ─────────────────────────────  │
+│  ┌──────────────────────────────────────────────┐   ┌────────────────────────────┐  │
+│  │ PRIVATE DB SUBNET                            │   │ PRIVATE DB SUBNET          │  │
+│  │                                              │   │                            │  │
+│  │   ┌──────────────────────────────────────┐   │   │   ┌────────────────────┐   │  │
+│  │   │ PRIMARY RDS DATABASE                 │   │   │   │ STANDBY RDS DB     │   │  │
+│  │   │ [Sec Group: Allows ASG EC2 Port]     │───┼───┼──►│ (Synchronous Sync) │   │  │
+│  │   └──────────────────────────────────────┘   │   │   └────────────────────┘   │  │
+│  └──────────────────────────────────────────────┘   └────────────────────────────┘  │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+
 
 ---
 
@@ -226,11 +276,11 @@ Add your screenshot here.
 
 Summarize the VPC and subnets across the two Availability Zones.
 
-Write your answer here.
+The VPC serve as a house and inside the house we have a two room which is SUBNET, in `PUBLIC SUBNET` we have a dinning where people can access outside, the name is Internet gateway. we do not juat have internet gateway, there also a route in which they will pass to outside which is route table. also, we can as well access our private room in the house(VPC) which is the `PRIVATE SUBNET` through NAT gateway which you can pass enter into the private room. but in that place its out of bound to unauthorised person. that is where security group come to play.
 
 Summarize the ALB and Auto Scaling Group setup.
 
-Write your answer here.
+Load balancer did a greate work in making sure the traffic that is coming into the system is not too heavy for one instance or computing power of that system, so there is a target on the computing system if anything happen to one instance it will signal to auto scalling group. it does that to make sure there is availability by connecting with auto scalling groupto launch new instance automatically then the work continue.
 
 Summarize the private Multi-AZ RDS setup.
 
@@ -239,7 +289,7 @@ Write your answer here.
 Summarize the results of both high-availability tests.
 
 Write your answer here.
-
+http://ha-alb-1163980584.us-east-1.elb.amazonaws.com/ 
 ---
 
 # LinkedIn Post (Required)
