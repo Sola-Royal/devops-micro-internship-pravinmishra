@@ -194,7 +194,7 @@ Verify the frontend loads publicly, the backend responds through Nginx, and EC2 
 
 #### Screenshot 19 — Browser showing the EpicBook application loaded with the public IP visible
 
-![alt text](image-43.png)
+![alt text](image-61.png)
 
 ---
 

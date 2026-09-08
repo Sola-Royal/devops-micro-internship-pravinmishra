@@ -20,7 +20,7 @@ Create an architecture diagram showing the custom VPC (10.0.0.0/16), the six sub
 
 #### Diagram image or link
 
-Add your diagram image or link here.
+![alt text](image-62.png)
 
 ---
 
@@ -56,7 +56,7 @@ Confirm the Book Review App loads through the public ALB DNS name.
 
 Paste your public ALB DNS name here:
 
-`Add your URL here`
+http://book-review-web-alb-1422555216.eu-north-1.elb.amazonaws.com/
 
 ---
 
@@ -70,37 +70,36 @@ Capture visual proof of every tier and load balancer.
 
 #### Web EC2
 
-Add your screenshot here.
+![alt text](image-63.png)
 
 ---
 
 #### App EC2
 
-Add your screenshot here.
+![alt text](image-56.png)
 
 ---
 
 #### Public ALB
 
-Add your screenshot here.
+![alt text](image-57.png)
 
 ---
 
 #### Internal ALB
 
-Add your screenshot here.
+![alt text](image-58.png)
 
 ---
 
 #### RDS + Replica
 
-Add your screenshot here.
-
+![alt text](image-59.png)
 ---
 
 #### App UI proof
 
-Add your screenshot here.
+![alt text](image-60.png)
 
 ---
 
@@ -114,19 +113,20 @@ Summarize what worked in the final deployment, the issues encountered and how ea
 
 **What worked:**
 
-Write your answer here.
+Omg, most of the connectivity worked but the ability to make them connect rightly is the problem.
+I encountered issues with database talking with frontend but later i got it worked.
 
 ---
 
 **Issues + fixes:**
 
-Write your answer here.
+I make chat gpt and it explain to me then i followed the instruction.
 
 ---
 
 **Tools/sources used:**
 
-Write your answer here.
+ChatGPT, Claude
 
 ---
 

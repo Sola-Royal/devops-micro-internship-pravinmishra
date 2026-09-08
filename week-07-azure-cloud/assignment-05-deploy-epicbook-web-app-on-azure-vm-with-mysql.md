@@ -20,19 +20,19 @@ Create a VNet (10.0.0.0/16) with a public subnet (10.0.1.0/24) for the VM and a 
 
 #### Screenshot 1 — Virtual Network overview showing the 10.0.0.0/16 address space and both subnets
 
-Add your screenshot here.
+![alt text](image-13.png)
 
 ---
 
 #### Screenshot 2 — Public and private NSG inbound rules showing ports 80, 22, and restricted 3306 access
 
-Add your screenshot here.
+![alt text](image-14.png)
 
 ---
 
 #### Screenshot 3 — Public IP and Network Interface association for the Virtual Machine
 
-Add your screenshot here.
+![alt text](image-15.png)
 
 ---
 
@@ -46,13 +46,13 @@ Launch an Ubuntu 22.04 LTS VM (Standard B1s or equivalent) in the public subnet,
 
 #### Screenshot 4 — Virtual Machine overview showing Ubuntu, size, public IP, and subnet
 
-Add your screenshot here.
+![alt text](image-16.png)
 
 ---
 
 #### Screenshot 5 — Terminal showing successful software installation or installed-version checks
 
-Add your screenshot here.
+![alt text](image-17.png)
 
 ---
 
@@ -66,19 +66,19 @@ Clone the EpicBook repository, install dependencies, build the frontend, configu
 
 #### Screenshot 6 — Terminal showing the EpicBook repository cloned and dependencies installed
 
-Add your screenshot here.
+![alt text](image-18.png)
 
 ---
 
 #### Screenshot 7 — Nginx configuration or service status proving the frontend is configured to be served
 
-Add your screenshot here.
+![alt text](image-19.png)
 
 ---
 
 #### Screenshot 8 — Backend process or listening-port evidence (without exposing environment-variable secrets)
 
-Add your screenshot here.
+![alt text](image-20.png)
 
 ---
 
@@ -118,13 +118,13 @@ Confirm the EpicBook application loads through the VM's public IP and that viewi
 
 #### Screenshot 12 — Browser showing the EpicBook application with the Virtual Machine public IP visible
 
-Add your screenshot here.
+![alt text](image-21.png)
 
 ---
 
 #### Screenshot 13 — Proof of a successful database-backed action (viewing products, adding to cart, or placing an order)
 
-Add your screenshot here.
+![alt text](image-22.png)
 
 ---
 
@@ -132,7 +132,7 @@ Add your screenshot here.
 
 Paste the public IP URL of your Virtual Machine here:
 
-`Add your URL here`
+20.42.36.27
 
 ---
 
