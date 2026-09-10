@@ -136,10 +136,10 @@ Week 05 → DevOps Lifecycle & Agile
 | 03 | Linux & Bash for DevOps | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/solaibinuolapo_devops-cloudengineering-nginx-share-7484636857381654529-aKUk/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://hesolaroyal.medium.com/what-breaking-my-own-server-on-purpose-taught-me-about-production-systems-75e47f2f1e1c |
 | 04 | Git & GitHub | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/solaibinuolapo_git-github-opensource-share-7485658788113485824-W0zo/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://hesolaroyal.medium.com/deepening-my-work-on-git-and-github-mastery-ce09dcd2fcbc |
 | 05 | DevOps Lifecycle & Agile | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/solaibinuolapo_devops-agile-scrum-share-7493001074711183361-t63H/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://hesolaroyal.medium.com/running-a-real-five-day-sprint-planning-shipping-and-reviewing-like-a-team-89a268b69a61?sharedUserId=hesolaroyal |
-| 06 | AWS Cloud | ⬜ Not Started | ⏳ Pending | — | — |
-| 07 | Azure Cloud | ⬜ Not Started | ⏳ Pending | — | — |
-| 08 | Terraform | ⬜ Not Started | ⏳ Pending | — | — |
-| 09 | Ansible | ⬜ Not Started | ⏳ Pending | — | — |
+| 06 | AWS Cloud | 🔄 In Progress | ⏳ Pending | — | — |
+| 07 | Azure Cloud | 🔄 In Progress | ⏳ Pending | — | — |
+| 08 | Terraform | 🔄 In Progress | ⏳ Pending | — | — |
+| 09 | Ansible | 🔄 In Progress | ⏳ Pending | — | — |
 | 10 | Azure DevOps (CI/CD) | ⬜ Not Started | ⏳ Pending | — | — |
 | 11 | Docker | ⬜ Not Started | ⏳ Pending | — | — |
 | 12 | Kubernetes | ⬜ Not Started | ⏳ Pending | — | — |

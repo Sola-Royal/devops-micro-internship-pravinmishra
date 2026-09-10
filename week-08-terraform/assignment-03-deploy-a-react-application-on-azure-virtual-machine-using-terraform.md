@@ -100,7 +100,7 @@ Add a screenshot of VS Code showing the completed `cloud-init.sh` deployment scr
 
 Ensure that no passwords, Azure credentials, access tokens, SSH private keys, or other sensitive information are visible.
 
-Add your screenshot here.
+![alt text](image-32.png)
 
 ---
 
@@ -162,7 +162,7 @@ Add a screenshot showing the VM public IP address returned by `terraform output`
 
 Record the public IP address displayed by `terraform output`.
 
-**VM Public IP Address:** public_ip_address = "51.20.96.74"
+**VM Public IP Address:** public_ip_address = "13.49.213.175"
 
 ---
 
@@ -178,7 +178,7 @@ Connect to the Azure Linux virtual machine and confirm that the cloud-init/user 
 
 Add a screenshot of the SSH terminal showing a successful connection to the Azure VM and evidence that the React application deployment completed.
 
-Add your screenshot here.
+![alt text](image-31.png)
 
 ---
 
@@ -186,7 +186,7 @@ Add your screenshot here.
 
 Add a screenshot of the terminal showing that the Nginx service is running successfully.
 
-Add your screenshot here.
+![alt text](image-34.png)
 
 ---
 
@@ -204,7 +204,7 @@ Add a screenshot of the browser showing the deployed React application successfu
 
 Ensure that the Azure VM public IP is visible in the browser address bar.
 
-Add your screenshot here.
+![alt text](image-35.png)
 
 ---
 
