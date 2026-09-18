@@ -85,8 +85,8 @@ Week 04 → Git & GitHub
 Week 05 → DevOps Lifecycle & Agile
 [![Week 05 – Agile](./badges/week-05.svg)](./week-05-devops-lifecycle/)
 
-<!-- Week 06 → AWS Cloud -->
-<!-- [![Week 06 – AWS](./badges/week-06.svg)](./week-06-aws-cloud/) -->
+Week 06 → AWS Cloud
+[![Week 06 – AWS](./badges/week-06.svg)](./week-06-aws-cloud/)
 
 <!-- Week 07 → Azure Cloud -->
 <!-- [![Week 07 – Azure](./badges/week-07.svg)](./week-07-azure-cloud/) -->
@@ -136,7 +136,7 @@ Week 05 → DevOps Lifecycle & Agile
 | 03 | Linux & Bash for DevOps | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/solaibinuolapo_devops-cloudengineering-nginx-share-7484636857381654529-aKUk/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://hesolaroyal.medium.com/what-breaking-my-own-server-on-purpose-taught-me-about-production-systems-75e47f2f1e1c |
 | 04 | Git & GitHub | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/solaibinuolapo_git-github-opensource-share-7485658788113485824-W0zo/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://hesolaroyal.medium.com/deepening-my-work-on-git-and-github-mastery-ce09dcd2fcbc |
 | 05 | DevOps Lifecycle & Agile | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/solaibinuolapo_devops-agile-scrum-share-7493001074711183361-t63H/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://hesolaroyal.medium.com/running-a-real-five-day-sprint-planning-shipping-and-reviewing-like-a-team-89a268b69a61?sharedUserId=hesolaroyal |
-| 06 | AWS Cloud | 🔄 In Progress | ⏳ Pending | — | — |
+| 06 | AWS Cloud | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/solaibinuolapo_loadbalancing-autoscaling-activity-7505329656066371585-25gE?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://hesolaroyal.medium.com/why-am-i-debugging-8acd78339ec6 |
 | 07 | Azure Cloud | 🔄 In Progress | ⏳ Pending | — | — |
 | 08 | Terraform | 🔄 In Progress | ⏳ Pending | — | — |
 | 09 | Ansible | 🔄 In Progress | ⏳ Pending | — | — |

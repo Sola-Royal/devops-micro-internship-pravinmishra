@@ -24,13 +24,13 @@ Confirm your AWS CLI is authenticated and can see the S3 bucket, EC2 instance(s)
 
 #### Screenshot 1 — Output of `aws s3 ls`, the EC2 instance table, and the RDS instance table (blur the Account ID if visible)
 
-Add your screenshot here.
+![alt text](image-64.png)
 
 ---
 
 #### Screenshot 2 — Output of `pwd` and `find . -maxdepth 4 -type d | sort`
 
-Add your screenshot here.
+![alt text](image-65.png)
 
 ---
 
@@ -38,11 +38,11 @@ Add your screenshot here.
 
 **1. Which resources from this week's earlier assignments did you see in the listings?**
 
-Write your answer here.
+I saw the S3 bucket, ec2 book review running, amd rds for it.
 
 **2. Why must you confirm your resources exist before writing an audit script against them?**
 
-Write your answer here.
+We need some resources to confirm the audit the Claude Ai wants to do.
 
 ---
 
@@ -56,7 +56,7 @@ Create a `CLAUDE.md` in your workspace that tells Claude the audit script is rea
 
 #### Screenshot 3 — `CLAUDE.md` open in VS Code showing all four sections
 
-Add your screenshot here.
+![alt text](image-66.png)
 
 ---
 
@@ -64,11 +64,11 @@ Add your screenshot here.
 
 **1. Why should Claude never be given permission to run `revoke-security-group-ingress` itself, even if the fix is obviously correct?**
 
-Write your answer here.
+Because Ingress is a critical place in Security group, it allows traffic into the resources. the traffic that must be allow to come in must be defined. so, if claude is giving permission to do that it can affect or do the one is not meant to do.
 
 **2. Which rule prevents Claude from claiming a finding that the report does not support?**
 
-Write your answer here.
+`Safety Rules`: Never run aws ec2 revoke-security-group-ingress, aws ec2 authorize-security-group-ingress, or aws rds modify-db-instance.
 
 ---
 
@@ -82,7 +82,10 @@ Ask Claude Code to propose a read-only audit plan covering five checks — S3 pu
 
 #### Screenshot 4 — Claude Code showing the five-check plan
 
-Add your screenshot here.
+![alt text](image-67.png)
+![alt text](image-68.png)
+![alt text](image-69.png)
+![alt text](image-70.png)
 
 ---
 
@@ -90,11 +93,11 @@ Add your screenshot here.
 
 **1. Which part of this task represents the Gather phase?**
 
-Write your answer here.
+the Audit Workflow do the gathering of information, it only read and gather and it does not perform any other functions
 
 **2. Did every proposed command start with `describe-`, `get-`, or `list-`? Why does that matter?**
 
-Write your answer here.
+the three commands does not do any harm to the resources, `describe` only tell what is there, `get` only show what is there, while `list` omly mention them as seen. none has anything to do with execution or deletion or revoke things 
 
 ---
 
@@ -110,19 +113,19 @@ Make it executable and confirm it has no syntax errors.
 
 #### Screenshot 5 — Top section of `aws-audit.sh` showing the variables and the checks array
 
-Add your screenshot here.
+![alt text](image-71.png)
 
 ---
 
 #### Screenshot 6 — One check function (for example `check_ssh_open_to_world`) showing the AWS CLI call and conditional
 
-Add your screenshot here.
+![alt text](image-74.png)
 
 ---
 
 #### Screenshot 7 — Output of `bash -n scripts/aws-audit.sh` and `ls -l scripts/aws-audit.sh`
 
-Add your screenshot here.
+![alt text](image-73.png)
 
 ---
 
@@ -130,15 +133,19 @@ Add your screenshot here.
 
 **1. What is stored in the checks array, and how does the loop use it?**
 
-Write your answer here.
+The checks array stores string names of the Bash functions defined in the script (check_s3_public_access, check_ssh_open_to_world, etc.).
+
+The for check_function in "${checks[@]}" loop iterates through the array and dynamically executes each function by calling "$check_function". This design makes the script modular, you can add, remove, or reorder audit checks simply by modifying the array without touching the execution logic.
 
 **2. Why does every AWS CLI call in this script use `--query` and `--output text` instead of parsing raw JSON?**
 
-Write your answer here.
+Direct filtering (--query): Uses JMESPath expressions to extract only the specific field or array length needed directly from the AWS API response, eliminating the dependency on external tools like jq.
+
+Clean Bash values (--output text): Returns raw, plain-text strings or numbers instead of JSON-formatted data (which includes quotes, braces, and line breaks). This allows Bash to instantly perform string comparisons ([ "$block_acls" = "True" ]) or numerical logic ([ "$open_rule_count" -gt 0 ]) without extra string scrubbing.
 
 **3. Why does the script use different exit codes for HEALTHY, WARN, and FAIL?**
 
-Write your answer here.
+CI/CD & Automation Integration: Exit codes allow parent processes, cron jobs, or CI/CD pipelines (such as GitHub Actions or Jenkins) to programmatically determine the status of the run without needing to parse text logs.
 
 ---
 
@@ -152,13 +159,13 @@ Run the script against your live AWS account and capture the current state befor
 
 #### Screenshot 8 — Output of `./scripts/aws-audit.sh` showing your Full Name and all five checks
 
-Add your screenshot here.
+![alt text](image-75.png)
 
 ---
 
 #### Screenshot 9 — Output showing the captured exit code and final summary
 
-Add your screenshot here.
+![alt text](image-76.png)
 
 ---
 
@@ -166,15 +173,20 @@ Add your screenshot here.
 
 **1. What is the overall status of your baseline audit?**
 
-Write your answer here.
+![alt text](image-77.png)
 
 **2. Did any check return FAIL or WARN? If so, which one, and what evidence did it show?**
 
-Write your answer here.
+ S3 Public Access Blocks shows `FAIL`, because the public ACLs is not fully blocked and something unexpected can happen to it.
+
+EBS Encryption shows `WARN`, Evidence from report it shows [WARN] EBS volume(s) are not encrypted. it expose data if the instance is compromised or the volume is detached and accessed elsewhere
+  
+RDS Public Accessibility shows `WARN`, Evidence from report shows that [WARN]
+Could not determine public accessibility for RDS instance 'book-review-db. the audit could not verify if it is open to public or not
 
 **3. If every check passed, what does that tell you about the security posture of your account so far?**
 
-Write your answer here.
+it indicates that my account has successfully established a strong baseline security posture for the specific resources and rules evaluated by the script
 
 ---
 
@@ -188,13 +200,15 @@ Turn the script into a Claude Code skill named `/aws-audit` that runs the script
 
 #### Screenshot 10 — `SKILL.md` showing the frontmatter, tool restrictions, and safety rules
 
-Add your screenshot here.
+![alt text](image-78.png)
 
 ---
 
 #### Screenshot 11 — `/aws-audit` output showing findings, cost/risk impact, and a recommended remediation command (or a clean report if your baseline passed everything)
 
-Add your screenshot here.
+![alt text](image-79.png)
+![alt text](image-80.png)
+![alt text](image-81.png)
 
 ---
 
@@ -202,15 +216,21 @@ Add your screenshot here.
 
 **1. Why does this skill have Bash, Read, and Grep, but not Write?**
 
-Write your answer here.
+Restricting the skill to `read-only` capabilities prevents the AI from accidentally modifying files, corrupting codebases, or executing unauthorized state changes on your cloud environment.
+
+Audit skills are designed for assessment, not autonomous mutation. Excluding `Write` ensures that remediation steps (like altering S3 bucket configurations) are presented as recommendations for human approval rather than executed without oversight.
 
 **2. What part is performed by Bash, and what part is performed by Claude?**
 
-Write your answer here.
+Bash: Interacts directly with the operating system and AWS CLI to execute commands, read logs from disk, filter text (grep), and retrieve deterministic raw state data.
+
+Claude (Analysis & Synthesis): Processes raw command outputs, identifies root causes (like syntax typos or missing variables), translates exit codes into human-readable tables, evaluates security trade-offs, and guides you through remediation
 
 **3. Why is estimating cost/risk impact something the AI adds on top of a plain PASS/FAIL script?**
 
-Write your answer here.
+Shell scripts only perform boolean checks `(e.g., True vs False)`. They lack the domain context to explain business consequences or operational trade-offs.
+
+Adding risk severity `e.g. exposed data vs. potential downtime` and cost impacts for example, free S3 block changes vs. EBS snapshot costs, helps teams triage findings—enabling them to prioritize critical fixes over low-risk warnings based on financial and operational impact.
 
 ---
 
@@ -224,13 +244,13 @@ Pick one real finding from your baseline report (or deliberately open a security
 
 #### Screenshot 12 — Output of the `revoke-security-group-ingress` and `authorize-security-group-ingress` commands you ran yourself
 
-Add your screenshot here.
-
+![alt text](image-82.png)
+![alt text](image-83.png)
 ---
 
 #### Screenshot 13 — Rerun of `./scripts/aws-audit.sh` showing the finding is now PASS
 
-Add your screenshot here.
+![alt text](image-84.png)
 
 ---
 
@@ -238,19 +258,26 @@ Add your screenshot here.
 
 **1. Which exact finding did you fix, and what command did you run?**
 
-Write your answer here.
+I fixed ther s3 bucket that was open to the public using the recommended commands.
 
 **2. Why did you scope the new rule to your own IP address instead of leaving it open to `0.0.0.0/0`?**
 
-Write your answer here.
+we scope it to not allow unathorised access
 
 **3. Did Claude execute the remediation command, or did you? Why does that matter?**
 
-Write your answer here.
+Claude did not execute any commands but i did on the instruction to make sure the security of my resources are in good places. 
 
 **4. Which phase of the Agentic Loop does the Bash script represent? Which phase does Claude's explanation represent? Which phase is you running the fix?**
 
-Write your answer here.
+Bash Script Execution: Observation / Data Gathering (Tool Execution)
+The script acts as the environment's sensing mechanism, querying AWS APIs to collect raw, objective state data and security metrics.
+
+Claude's Explanation: Reasoning / Analysis
+This represents the cognitive processing phase where raw data is interpreted, risks and costs are evaluated, and actionable solutions are structured.
+
+Running the Fix: Action / Remediation
+This represents the execution phase where decisions are acted upon, directly altering the system's state to bring the environment into compliance.
 
 ---
 
@@ -277,13 +304,12 @@ Suggested tags:
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
-
+https://www.linkedin.com/posts/solaibinuolapo_aws-devops-cloudsecurity-activity-7506816578487889920-R2OR?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM
 ---
 
 #### Screenshot of Published LinkedIn Post
 
-Add your screenshot here.
+![alt text](image-87.png)
 
 ---
 
