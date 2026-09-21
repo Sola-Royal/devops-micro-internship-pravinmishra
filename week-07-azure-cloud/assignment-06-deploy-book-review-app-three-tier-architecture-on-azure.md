@@ -20,13 +20,13 @@ Create an architecture diagram and implementation plan identifying the presentat
 
 #### Screenshot 1 — Architecture diagram showing the public entry point, three tiers, network boundaries, and traffic flow
 
-Add your screenshot here.
+![alt text](image-30.png)
 
 ---
 
 #### Screenshot 2 — Written architecture assumptions and selected Azure services
 
-Add your screenshot here.
+Selected Azure ServicesEdge Security & Routing: Azure Front Door with Web Application Firewall (WAF)Presentation Tier (Web): Azure App Service (Linux, Premium v3, Zone-Redundant)Business Tier (App/API): Azure App Service (Linux, Premium v3, Zone-Redundant)Data Tier (Database): Azure Database for PostgreSQL (Flexible Server, Zone-Redundant HA)Secrets & Security: Azure Key Vault using System-Assigned Managed IdentitiesMonitoring & Logging: Azure Monitor Application Insights & Log Analytics WorkspaceCore Implementation AssumptionsIdentity & Access: Azure Active Directory (Entra ID) handles all RBAC permissions for resource deployment.Public Access: No direct public internet ingress is permitted to the Web, App, or Data tiers; all traffic is forced through Azure Private Endpoints.SSL/TLS Termination: Custom domains and SSL certificates are managed entirely at the Azure Front Door edge.Network Capacity: The 10.0.0.0/16 VNet space provides sufficient IP headroom for future scale out across all four subnets.
 
 ---
 

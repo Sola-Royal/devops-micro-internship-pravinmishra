@@ -92,19 +92,19 @@ Create a private Azure Database for MySQL Flexible Server (VNet Integration) in 
 
 #### Screenshot 9 — MySQL Flexible Server overview showing Private access (VNet Integration)
 
-Add your screenshot here.
+![alt text](image-25.png)
 
 ---
 
 #### Screenshot 10 — Networking configuration showing the private subnet and restricted access
 
-Add your screenshot here.
+![alt text](image-26.png)
 
 ---
 
 #### Screenshot 11 — MySQL Client output showing the EpicBook database or imported tables (no password visible)
 
-Add your screenshot here.
+![alt text](image-27.png)
 
 ---
 
@@ -118,13 +118,13 @@ Confirm the EpicBook application loads through the VM's public IP and that viewi
 
 #### Screenshot 12 — Browser showing the EpicBook application with the Virtual Machine public IP visible
 
-![alt text](image-21.png)
+![alt text](image-28.png)
 
 ---
 
 #### Screenshot 13 — Proof of a successful database-backed action (viewing products, adding to cart, or placing an order)
 
-![alt text](image-22.png)
+![alt text](image-29.png)
 
 ---
 
@@ -132,7 +132,7 @@ Confirm the EpicBook application loads through the VM's public IP and that viewi
 
 Paste the public IP URL of your Virtual Machine here:
 
-20.42.36.27
+20.215.65.167
 
 ---
 
