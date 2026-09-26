@@ -88,8 +88,8 @@ Week 05 → DevOps Lifecycle & Agile
 Week 06 → AWS Cloud
 [![Week 06 – AWS](./badges/week-06.svg)](./week-06-aws-cloud/)
 
-<!-- Week 07 → Azure Cloud -->
-<!-- [![Week 07 – Azure](./badges/week-07.svg)](./week-07-azure-cloud/) -->
+Week 07 → Azure Cloud
+[![Week 07 – Azure](./badges/week-07.svg)](./week-07-azure-cloud/)
 
 <!-- Week 08 → Terraform -->
 <!-- [![Week 08 – Terraform](./badges/week-08.svg)](./week-08-terraform/) -->
@@ -137,9 +137,9 @@ Week 06 → AWS Cloud
 | 04 | Git & GitHub | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/solaibinuolapo_git-github-opensource-share-7485658788113485824-W0zo/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://hesolaroyal.medium.com/deepening-my-work-on-git-and-github-mastery-ce09dcd2fcbc |
 | 05 | DevOps Lifecycle & Agile | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/solaibinuolapo_devops-agile-scrum-share-7493001074711183361-t63H/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://hesolaroyal.medium.com/running-a-real-five-day-sprint-planning-shipping-and-reviewing-like-a-team-89a268b69a61?sharedUserId=hesolaroyal |
 | 06 | AWS Cloud | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/solaibinuolapo_loadbalancing-autoscaling-activity-7505329656066371585-25gE?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUrROwBSs3BHxwzwdeWVUk2kf9iszgkWjM | https://hesolaroyal.medium.com/why-am-i-debugging-8acd78339ec6 |
-| 07 | Azure Cloud | 🔄 In Progress | ⏳ Pending | — | — |
-| 08 | Terraform | 🔄 In Progress | ⏳ Pending | — | — |
-| 09 | Ansible | 🔄 In Progress | ⏳ Pending | — | — |
+| 07 | Azure Cloud | ✅ Completed | ✅ Solved | https://lnkd.in/p/epd-MzrN | https://hesolaroyal.medium.com/the-cost-of-being-an-excellent-devops-engineer-for-azure-part-2-b92a026a1e7d |
+| 08 | Terraform | 🔄 In Progress | 🔄 In Progress | — | — |
+| 09 | Ansible | 🔄 In Progress | 🔄 In Progress | — | — |
 | 10 | Azure DevOps (CI/CD) | ⬜ Not Started | ⏳ Pending | — | — |
 | 11 | Docker | ⬜ Not Started | ⏳ Pending | — | — |
 | 12 | Kubernetes | ⬜ Not Started | ⏳ Pending | — | — |
