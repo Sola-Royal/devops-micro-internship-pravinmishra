@@ -6,8 +6,8 @@ Part of the DevOps Micro Internship (DMI) with Agentic AI
 
 ## Student Details
 
-**Full Name:** Add your full name here  
-**Cloud Platform Used:** AWS / Azure  
+**Full Name:** Sola Ibinuolapo  
+**Cloud Platform Used:** AWS
 **Server 1 URL:** `http://<SERVER_1_PUBLIC_IP>`  
 **Server 2 URL:** `http://<SERVER_2_PUBLIC_IP>`
 

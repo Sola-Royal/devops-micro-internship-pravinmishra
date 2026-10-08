@@ -24,19 +24,19 @@ This project will use the Git repository and Ansible controller prepared in Assi
 
 #### Screenshot 1 — Terminal showing the complete `ansible-adhoc-lab` project structure
 
-Add your screenshot here.
+![alt text](image-32.png)
 
 ---
 
 #### Screenshot 2 — Terminal showing `git status --short` with the new project files and updated `.gitignore`
 
-Add your screenshot here.
+![alt text](image-33.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+I am using three tier architecture. I have set up my ansible environment already.
 
 ---
 
@@ -57,25 +57,25 @@ Do not configure both providers for this assignment.
 
 #### Screenshot 3 — Terraform configuration showing the three or four server roles and the `for_each` or `count` implementation
 
-Add your screenshot here.
+![alt text](image-34.png)
 
 ---
 
 #### Screenshot 4 — Terraform configuration showing SSH restricted to the controller IP and HTTP allowed only for web hosts
 
-Add your screenshot here.
+![alt text](image-35.png)
 
 ---
 
 #### Screenshot 5 — Terraform output configuration showing how public IP addresses are associated with the server roles
 
-Add your screenshot here.
+![alt text](image-36.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+My infrastructure out the public and private Ip or web, and bioth private Ip for App, and db 
 
 ---
 
@@ -89,25 +89,25 @@ Initialize and validate the Terraform configuration, review the execution plan, 
 
 #### Screenshot 6 — Final `terraform apply` output showing `Apply complete`
 
-Add your screenshot here.
+![alt text](image-39.png)
 
 ---
 
 #### Screenshot 7 — `terraform output public_ips` showing the role-to-IP mapping for all three or four VMs
 
-Add your screenshot here.
+![alt text](image-38.png)
 
 ---
 
 #### Screenshot 8 — Azure Portal or AWS Management Console showing all three or four VMs in the `Running` state, with their role-based names visible
 
-Add your screenshot here.
+![alt text](image-40.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+The three instance is on thier running state
 
 ---
 
@@ -121,13 +121,13 @@ Verify that each managed VM can be accessed from the Ansible controller using SS
 
 #### Screenshot 9 — Terminal showing successful SSH hostname output from all VMs
 
-Add your screenshot here.
+![alt text](image-42.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+All the the web was able to reach and jump all the private Ip supplied to it.
 
 ---
 
@@ -143,19 +143,19 @@ The inventory allows Ansible to run commands against all servers, or only specif
 
 #### Screenshot 10 — `inventory.ini` showing the `web`, `app`, and `db` groups
 
-Add your screenshot here.
+![alt text](image-43.png)
 
 ---
 
 #### Screenshot 11 — Output of `ansible-inventory -i inventory.ini --graph`
 
-Add your screenshot here.
+![alt text](image-44.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+The commands output the graph in the image above
 
 ---
 
@@ -171,43 +171,46 @@ This task proves that the inventory is working and that Ansible can control mult
 
 #### Screenshot 12 — Output of `ansible all -i inventory.ini -m ping`
 
-Add your screenshot here.
+![alt text](image-45.png)
 
 ---
 
 #### Screenshot 13 — Output of `ansible all -i inventory.ini -m command -a "uptime"`
 
-Add your screenshot here.
+![alt text](image-46.png)
 
 ---
 
 #### Screenshot 14 — Output of `ansible web -i inventory.ini -m apt -a "name=nginx state=present update_cache=yes" --become`
 
-Add your screenshot here.
+![alt text](image-47.png)
 
 ---
 
 #### Screenshot 15 — Output of `ansible web -i inventory.ini -m service -a "name=nginx state=started enabled=yes" --become`
 
-Add your screenshot here.
+![alt text](image-48.png)
 
 ---
 
 #### Screenshot 16 — Output of `ansible all -i inventory.ini -m apt -a "name=htop state=present update_cache=yes" --become`
 
-Add your screenshot here.
+![alt text](image-49.png)
 
 ---
 
 #### Screenshot 17 — Output of `ansible web -i inventory.ini -m command -a "systemctl is-active nginx"`
 
-Add your screenshot here.
+![alt text](image-50.png)
 
 ---
 
 ### Notes
 
-Add your task notes here.
+13.61.192.213 | CHANGED | rc=0 >>
+active
+
+it shows the `ngix` is active and installed on the web instance
 
 ---
 
@@ -235,37 +238,37 @@ Answer the following in your own words:
 
 **1. What is the purpose of an Ansible inventory file?**
 
-Add your answer here.
+The ansible inventory file is a configuration script that makes ansible communicate with infrastructure that its is managing.
 
 ---
 
 **2. What is the difference between the `web`, `app`, and `db` groups in your inventory?**
 
-Add your answer here.
+The essence of the group is the distinguished between the web, app, and db servers
 
 ---
 
 **3. What does the Ansible `ping` module verify?**
 
-Add your answer here.
+Ping checks the connectivity of the servers in the inventory
 
 ---
 
 **4. Why do package installation commands require `--become`?**
 
-Add your answer here.
+some commands or packages required `sudo`, using `--become` give it the access of of sudo.
 
 ---
 
 **5. When would you use an ad-hoc command instead of a playbook?**
 
-Add your answer here.
+`Ad-hoc` is a one-time commands in ansible to perform execution for that moment unlike a playbook which require continuous using.
 
 ---
 
 **6. What is one challenge you faced while setting up SSH or inventory, and how did you fix it?**
 
-Add your answer here.
+The challenges was i set up a three tier architech not just 3 web instance. I noticed that the commangs that worked on web server does not work on the rest before i discove that their ssh port 22 is not available.
 
 ---
 
