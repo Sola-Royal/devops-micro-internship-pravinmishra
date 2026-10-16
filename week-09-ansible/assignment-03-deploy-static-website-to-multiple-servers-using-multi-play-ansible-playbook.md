@@ -8,8 +8,8 @@ Part of the DevOps Micro Internship (DMI) with Agentic AI
 
 **Full Name:** Sola Ibinuolapo  
 **Cloud Platform Used:** AWS
-**Server 1 URL:** `http://<SERVER_1_PUBLIC_IP>`  
-**Server 2 URL:** `http://<SERVER_2_PUBLIC_IP>`
+**Server 1 URL:** `http://51.21.237.2/`  
+**Server 2 URL:** `http://13.50.27.182/`
 
 ---
 
@@ -31,7 +31,7 @@ Create the required folders and files for the Ansible project.
 
 ### Screenshot 1 — Terminal or VS Code showing the complete `static-web` project structure
 
-Add your screenshot here.
+![alt text](image-51.png)
 
 ---
 
@@ -45,7 +45,7 @@ Add both Ubuntu servers to the Ansible inventory.
 
 ### Screenshot 2 — Output of `ansible-inventory -i inventory.ini --graph` showing `web1` and `web2`
 
-Add your screenshot here.
+![alt text](image-52.png)
 
 ---
 
@@ -54,7 +54,14 @@ Add your screenshot here.
 Copy and paste the complete contents of your `inventory.ini` file below:
 
 ```ini
-Add your inventory.ini content here.
+[web]
+web1 ansible_host=51.21.237.2
+web2 ansible_host=13.50.27.182
+
+[all:vars]
+ansible_user=ubuntu
+ansible_ssh_private_key_file=~/.ssh/terraform-aws-vm-key
+
 ```
 
 ---
@@ -69,7 +76,7 @@ Confirm that the Ansible controller can connect to both servers.
 
 ### Screenshot 3 — Ansible ping output showing `SUCCESS` and `pong` for both servers
 
-Add your screenshot here.
+![alt text](image-53.png)
 
 ---
 
@@ -83,7 +90,7 @@ Download `index.html` to the Ansible controller and personalize the website with
 
 ### Screenshot 4 — Edited `files/index.html` showing the footer line with your full name
 
-Add your screenshot here.
+![alt text](image-54.png)
 
 ---
 
@@ -98,7 +105,66 @@ Create a single Ansible playbook containing separate plays for installation, dep
 Copy and paste the complete contents of your `site.yml` file below:
 
 ```yaml
-Add your site.yml content here.
+yaml
+---
+- name: Install and configure Nginx
+  hosts: web
+  become: true
+  tasks:
+    - name: Update the APT package cache
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Install Nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+
+    - name: Start and enable Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+
+- name: Deploy the static website
+  hosts: web
+  become: true
+  tasks:
+    - name: Copy index.html to the web root
+      ansible.builtin.copy:
+        src: files/index.html
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: "0644"
+      notify: Reload nginx
+
+  handlers:
+    - name: Reload nginx
+      ansible.builtin.service:
+        name: nginx
+        state: reloaded
+
+- name: Verify both websites from the controller
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  become: false
+  tasks:
+    - name: Send an HTTP GET request to each web server
+      ansible.builtin.uri:
+        url: "http://{{ hostvars[item].ansible_host }}"
+        status_code: 200
+      loop: "{{ groups['web'] }}"
+      register: website_checks
+
+    - name: Confirm each server returned HTTP 200
+      ansible.builtin.assert:
+        that:
+          - item.status == 200
+        success_msg: "{{ item.item }} returned HTTP {{ item.status }}"
+      loop: "{{ website_checks.results }}"
+
 ```
 
 ---
@@ -113,7 +179,7 @@ Check the playbook for YAML or Ansible syntax errors before running it.
 
 ### Screenshot 5 — Successful syntax-check output showing `playbook: site.yml`
 
-Add your screenshot here.
+![alt text](image-55.png)
 
 ---
 
@@ -127,13 +193,13 @@ Install Nginx, deploy the website, and verify both servers in one playbook run.
 
 ### Screenshot 6 — Play 3 verification showing HTTP `200` for both servers
 
-Add your screenshot here.
+![alt text](image-56.png)
 
 ---
 
 ### Screenshot 7 — Final play recap showing `unreachable=0` and `failed=0` for `web1`, `web2`, and `localhost`
 
-Add your screenshot here.
+![alt text](image-57.png)
 
 ---
 
@@ -161,19 +227,19 @@ Confirm that the static website is accessible from both public IP addresses.
 
 ### Screenshot 9 — `curl -I` output showing HTTP `200 OK` from both servers
 
-Add your screenshot here.
+![alt text](image-58.png)
 
 ---
 
 ### Screenshot 10 — Browser showing the website from Server 1 with the public IP and your full name visible
 
-Add your screenshot here.
+![alt text](image-60.png)
 
 ---
 
 ### Screenshot 11 — Browser showing the website from Server 2 with the public IP and your full name visible
 
-Add your screenshot here.
+![alt text](image-61.png)
 
 ---
 
@@ -182,8 +248,8 @@ Add your screenshot here.
 Add both deployed website URLs below:
 
 ```text
-Server 1: http://<SERVER_1_PUBLIC_IP>
-Server 2: http://<SERVER_2_PUBLIC_IP>
+Server 1: http://51.21.237.2/
+Server 2: http://13.50.27.182/
 ```
 
 ---
@@ -199,7 +265,141 @@ Document how the project works and record what you learned.
 Copy and paste the complete contents of your `README.md` file below:
 
 ```markdown
-Add your README.md content here.
+# Ansible Multi-Play Deployment: Static Website
+
+This repository contains the Ansible project for automated provisioning, website deployment, and end-to-end verification across multiple Ubuntu web servers (web1 and web2) from a single control machine.
+
+Project Structure
+~/ansible-onboarding/static-web/
+├── files/
+│   └── index.html       # Personalized static HTML website content
+├── inventory.ini        # Ansible inventory defining web hosts and SSH variables
+├── site.yml             # Multi-play Ansible playbook (Install, Deploy, Verify)
+└── README.md            # Project documentation and assignment notes
+
+# Task 1 Creating the Folder and the file
+cd ~/ansible-onboarding
+mkdir -p static-web/files
+cd static-web
+touch inventory.ini site.yml README.md files/index.html
+
+# Task 2 — Configure the Inventory
+Define target managed hosts in inventory.ini using ansible_host aliases and connection details:
+
+[web]
+web1 ansible_host=<WEB1_PUBLIC_IP>
+web2 ansible_host=<WEB2_PUBLIC_IP>
+
+[web:vars]
+ansible_user=ubuntu
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+
+
+Verify inventory parsing:
+`ansible-inventory -i inventory.ini --graph`
+
+# Task 3 — Verify SSH & Ansible Connectivity
+Confirm SSH authentication and module execution using Ansible's ping module:
+`ansible web -i inventory.ini -m ping`
+
+Fetch and Personalize Web Content
+Download the base HTML template into files/ and customize the owner line:
+
+curl -L https://raw.githubusercontent.com/pravinmishraaws/Azure-Static-Website/main/index.html -o files/index.html
+
+# Replace placeholder with your name in files/index.html
+# Example line: Hosted By <span id="yr"></span> Sola Ibinuolapo •
+
+`grep -n "Hosted By" files/index.html`
+
+# Task 4 — Multi-Play Playbook (site.yml)
+The playbook is divided into three separate plays:
+
+YAML
+---
+- name: Install and configure Nginx
+  hosts: web
+  become: true
+  tasks:
+    - name: Update the APT package cache
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Install Nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+
+    - name: Start and enable Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+
+- name: Deploy the static website
+  hosts: web
+  become: true
+  tasks:
+    - name: Copy index.html to the web root
+      ansible.builtin.copy:
+        src: files/index.html
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: "0644"
+      notify: Reload nginx
+
+  handlers:
+    - name: Reload nginx
+      ansible.builtin.service:
+        name: nginx
+        state: reloaded
+
+- name: Verify both websites from the controller
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  become: false
+  tasks:
+    - name: Send an HTTP GET request to each web server
+      ansible.builtin.uri:
+        url: "http://{{ hostvars[item].ansible_host }}"
+        status_code: 200
+      loop: "{{ groups['web'] }}"
+      register: website_checks
+
+    - name: Confirm each server returned HTTP 200
+      ansible.builtin.assert:
+        that:
+          - item.status == 200
+        success_msg: "{{ item.item }} returned HTTP {{ item.status }}"
+      loop: "{{ website_checks.results }}"
+
+
+Task 5 — Validate Playbook Syntax
+Run a syntax check prior to execution to catch formatting or structural YAML errors:
+`ansible-playbook -i inventory.ini site.yml --syntax-check`
+
+
+Task 6 — Execute the Playbook
+Run all three plays to provision Nginx, deploy static assets, and verify server responses:
+
+
+`ansible-playbook -i inventory.ini site.yml`
+
+## Verify Idempotency
+Re-run the playbook immediately without modifying files to ensure no unnecessary changes or service reloads occur:
+
+`ansible-playbook -i inventory.ini site.yml`
+Result: Tasks like Install Nginx and Copy index.html return ok rather than changed, and handlers are skipped automatically.
+
+# Task 7 — Manual Verification
+Perform HTTP header checks using curl and verify rendering in a web browser:
+
+Bash
+curl -I http://<WEB1_PUBLIC_IP>
+curl -I http://<WEB2_PUBLIC_IP>
+
 ```
 
 ---
@@ -228,37 +428,40 @@ Answer the following in your own words:
 
 **1. What issue did you face while completing this assignment, and how did you fix it?**
 
-Add your answer here.
+I face the issue of environment, web1 was connecting while web2 was not. 
+how i fix it was to redo the steps, bty adding the ss to the terminal again and it works.
 
 ---
 
 **2. What did you learn from this assignment?**
 
-Add your answer here.
+I learnt that there is no nneed of mannual installation when ansible is well known
 
 ---
 
 **3. Why is it useful to split installation, deployment, and verification into separate plays?**
 
-Add your answer here.
+for me, i think in order to know which one work and the other that does not.
+for example, the web1 was connecting the others was not, if not that it is separate i could not know
 
 ---
 
 **4. What is one benefit of using the Ansible `copy` module instead of cloning the website directly from Git on every managed server?**
 
-Add your answer here.
+One major benefit is enhanced security and strict network isolation for managed servers.
+Managed servers can stay completely isolated in private networks or air-gapped environments without requiring outbound HTTPS/SSH connections to GitHub, GitLab, or internal VCS servers
 
 ---
 
 **5. What does idempotency mean in this assignment?**
 
-Add your answer here.
+it means no repetition on he task that is been done before.
 
 ---
 
 **6. What does the Ansible `uri` module verify in Play 3?**
 
-Add your answer here.
+In Play 3, the uri module sends an HTTP GET request from the Ansible controller (localhost) to each web server to verify end-to-end HTTP health and service availability
 
 ---
 
