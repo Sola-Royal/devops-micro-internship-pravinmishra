@@ -6,8 +6,8 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 ## Student Details
 
-**Full Name:** Add your full name here  
-**GitHub Repository/Folder URL:** Add your GitHub URL here
+**Full Name:** Ibinuolapo Sola  
+**GitHub Repository/Folder URL:** https://github.com/Sola-Royal/devops-micro-internship-pravinmishra
 
 ---
 
@@ -40,7 +40,7 @@ Confirm that your Terraform configuration and deployed infrastructure are curren
 
 Add a screenshot of `terraform plan` showing no pending changes.
 
-Add your screenshot here.
+![alt text](image-93.png)
 
 ---
 
@@ -48,17 +48,17 @@ Add your screenshot here.
 
 Add a screenshot of the folder structure showing `AI Assignment/`, `reports/`, and the Terraform project.
 
-Add your screenshot here.
+![alt text](image-94.png)
 
 ## Questions
 
 ### 1. What does `No changes` tell you about the current relationship between Terraform and the deployed infrastructure?
 
-Write your answer here.
+We are just making uses of the old infrastructure, no need of creating new one.
 
 ### 2. Why is a clean baseline important before introducing a test change?
 
-Write your answer here.
+It guarantees that any detected differences, plan outputs, or policy alerts are caused strictly by your intentional test change, rather than pre-existing, untracked drift or legacy configuration mismatches.
 
 ---
 
@@ -74,21 +74,21 @@ Provide Claude Code with clear project context, evidence requirements, and safet
 
 Add a screenshot of `CLAUDE.md` open in VS Code showing the Project Overview, Review Workflow, Safety Rules, and Output Rules.
 
-Add your screenshot here.
+![alt text](image-95.png)
 
 ## Questions
 
 ### 1. Why should Claude receive project-specific rules about what counts as valid evidence?
 
-Write your answer here.
+AI models can hallucinate or accept incomplete terminal logs as proof of success
 
 ### 2. Why must the human remain responsible for running `terraform apply`?
 
-Write your answer here.
+terraform apply directly modifies live infrastructure, which carries real risks of data loss, service downtime, security vulnerabilities, and unexpected costs
 
 ### 3. Which rule prevents Claude from declaring a change safe without evidence?
 
-Write your answer here.
+The Evidence-Based Output / Proof Requirement rule. This rule explicitly forbids declaring any state HEALTHY or declaring a change safe unless verified directly against generated tool outputs, such as exit code 0 and structured JSON plan evidence
 
 ---
 
@@ -104,7 +104,7 @@ Create a Bash script that gathers Terraform plan evidence and checks it for dest
 
 Add a screenshot of the top section of `tf-drift-check.sh` showing the variables and `checks` array.
 
-Add your screenshot here.
+![alt text](image-96.png)
 
 ---
 
@@ -112,7 +112,7 @@ Add your screenshot here.
 
 Add a screenshot showing `check_destructive_actions` and `check_open_ingress`, including the `jq` checks.
 
-Add your screenshot here.
+![alt text](image-98.png)
 
 ---
 
@@ -120,29 +120,33 @@ Add your screenshot here.
 
 Add a screenshot showing successful `bash -n` and `ls -l` output.
 
-Add your screenshot here.
+![alt text](image-97.png)
 
 ## Questions
 
 ### 1. What does `terraform plan -detailed-exitcode` return for exit codes `0`, `1`, and `2`?
 
-Write your answer here.
+0: Succeeded with no pending changes (infrastructure and configuration are fully aligned).
+
+1: An error occurred while generating the plan.
+
+2: Succeeded with non-empty plan (pending changes or drift detected).
 
 ### 2. Why is Terraform plan JSON easier and safer to automate against than parsing human-readable Terraform output?
 
-Write your answer here.
+Human-readable CLI output is intended for interactive terminal viewing and can change across Terraform versions, include ANSI color formatting, or use line-wrapping that breaks string parsing scripts. In contrast, Terraform plan JSON (terraform show -json) adheres to a strict, machine-readable schema. This allows tools like jq to deterministically query specific fields—such as actions or ingress rules—without relying on fragile regular expressions or text matchin
 
 ### 3. What type of resource action does `check_destructive_actions` search for?
 
-Write your answer here.
+It specifically searches for the "delete" string inside the .change.actions array for every resource listed in the plan JSON.
 
 ### 4. Why does finding a `delete` action also help detect replacements?
 
-Write your answer here.
+Because replacing a resource requires tearing down the existing instance, checking for the "delete" action automatically catches both standalone resource deletions and destructive resource replacements.
 
 ### 5. Why must this script never run `terraform apply`?
 
-Write your answer here.
+The script is strictly designed as a read-only audit and policy check mechanism.
 
 ---
 
@@ -158,7 +162,7 @@ Verify that the review workflow reports a healthy result against your clean Terr
 
 Add a screenshot of the drift script output showing your full name and a `HEALTHY` result.
 
-Add your screenshot here.
+![alt text](image-99.png)
 
 ---
 
@@ -166,21 +170,21 @@ Add your screenshot here.
 
 Add a screenshot showing the captured script exit code `0`.
 
-Add your screenshot here.
+![alt text](image-100.png)
 
 ## Questions
 
 ### 1. What is the Overall Status of your baseline?
 
-Write your answer here.
+HEALTHY - Infrastructure is aligned and safe (Script Exit Code: 0).
 
 ### 2. Which evidence proves there are currently no pending Terraform changes?
 
-Write your answer here.
+The command terraform plan -detailed-exitcode returned exit code 0, which generated the passing check
 
 ### 3. Was `reports/tfplan.json` created? Explain why or why not.
 
-Write your answer here.
+Yes, reports/tfplan.json was created. When run_terraform_plan executes in tf-drift-check.sh, it saves the generated binary plan output to reports/tfplan
 
 ---
 
@@ -196,7 +200,7 @@ Turn the Bash evidence-gathering workflow into a reusable Agentic AI review proc
 
 Add a screenshot of `SKILL.md` showing the frontmatter, allowed tools, and safety rules.
 
-Add your screenshot here.
+![alt text](image-101.png)
 
 ---
 
@@ -210,23 +214,23 @@ Add your screenshot here.
 
 ### 1. Why does this Skill have `Bash`, `Read`, and `Grep`, but not `Write`?
 
-Write your answer here.
+The skill is designed strictly for read-only audit and evidence gathering. Excluding Write access ensures the agent cannot modify infrastructure state, edit local configuration files, or bypass guardrails while collecting drift metrics.
 
 ### 2. Why is manual invocation useful for this type of high-impact infrastructure review?
 
-Write your answer here.
+Manual invocation (/tf-drift-review) keeps human engineers explicitly in the loop. It prevents automatic or accidental execution during routine development and guarantees that reviews occur intentionally before deployment decisions are made.
 
 ### 3. Which part of the workflow is deterministic Bash automation?
 
-Write your answer here.
+The execution of tf-drift-check.sh—including running terraform plan -detailed-exitcode, generating tfplan.binary, converting it to tfplan.json, and running jq queries to count delete actions or 0.0.0.0/0 ingress rules—is completely deterministic.
 
 ### 4. Which part requires Claude's reasoning?
 
-Write your answer here.
+Claude's reasoning is required to synthesize raw script output, contextualize the operational impact of flagged drift items, translate structural JSON diffs into human-readable risk assessments, and recommend safe remediation steps.
 
 ### 5. Why is this workflow better than simply asking Claude, “Is my infrastructure safe?”
 
-Write your answer here.
+Asking a prompt in isolation causes the LLM to rely on memory or assumptions, risking hallucinations. This workflow roots Claude's response in deterministic, freshly generated state data (tfplan.json and exit codes), forcing the AI to evaluate verified ground truth.
 
 ---
 
@@ -264,27 +268,27 @@ Add your screenshot here.
 
 ### 1. What change did you introduce?
 
-Write your answer here.
+An unapproved open ingress security rule permitting inbound traffic from 0.0.0.0/0 was added to main.tf.
 
 ### 2. Was it true infrastructure drift or a Terraform configuration change?
 
-Write your answer here.
+It was a Terraform configuration change made directly in the local repository code (main.tf), creating a mismatch against the currently deployed state.
 
 ### 3. What Terraform plan evidence proves that a change is pending?
 
-Write your answer here.
+terraform plan -detailed-exitcode returned exit code 2, generating a tfplan.json file that recorded a pending change with 1 to add, 0 to change, 0 to destroy.
 
 ### 4. Was the action an update, deletion, replacement, or security-rule change?
 
-Write your answer here.
+It was an addition/security-rule change, specifically introducing a network rule that exposed ports to 0.0.0.0/0.
 
 ### 5. What did Claude recommend?
 
-Write your answer here.
+Claude flagged the change as a severe policy violation due to open public access, recommended reverting the unapproved ingress block in main.tf, and advised re-running the drift check before any apply attempt.
 
 ### 6. Why should you review the recommendation before taking action?
 
-Write your answer here.
+Automated tools lack organizational context regarding planned maintenance windows or emergency rule updates. Human review ensures that proposed remediations align with intended business outcomes without causing unintended outages.
 
 ---
 
@@ -318,23 +322,23 @@ Add your screenshot here.
 
 ### 1. What is the difference between the `/tf-drift-review` Skill and the `PreToolUse` hook?
 
-Write your answer here.
+/tf-drift-review is an advisory, read-only skill invoked on demand to gather and analyze evidence. The PreToolUse hook is an automated, imperative system guardrail that intercepts tool executions (like terraform apply) and actively blocks them if safety criteria are not met.
 
 ### 2. Which component performs analysis?
 
-Write your answer here.
+The /tf-drift-review Skill (leveraging tf-drift-check.sh, jq, and Claude) performs the analysis.
 
 ### 3. Which component enforces the safety gate?
 
-Write your answer here.
+The PreToolUse hook defined in .claude/settings.json enforces the safety gate.
 
 ### 4. Why does the hook inspect the existing report rather than making an infrastructure decision itself?
 
-Write your answer here.
+Inspecting the pre-generated report (reports/drift-detected-report.txt) ensures deterministic evaluation against confirmed audit findings (Overall Status: FAIL), eliminating the delay and risk of making live infrastructure calls during tool interception.
 
 ### 5. Why is a deterministic guard useful for high-impact commands?
 
-Write your answer here.
+High-impact commands (such as terraform apply) can modify or destroy production infrastructure. A deterministic guard provides an unbypassable circuit breaker that guarantees safety policies are enforced regardless of prompt variation or LLM output drift.
 
 ---
 
@@ -390,37 +394,37 @@ State whether it was:
 - True infrastructure drift, or
 - A Terraform configuration change
 
-Write your answer here.
+An unapproved ingress rule block granting open access from 0.0.0.0/0 was added to main.tf. This was a Terraform configuration change.
 
 ### 2. Evidence Collected
 
 Describe the Terraform plan evidence and affected resource.
 
-Write your answer here.
+Running terraform plan -detailed-exitcode produced exit code 2. Converting the resulting binary plan to reports/tfplan.json revealed a pending addition containing cidr_blocks = ["0.0.0.0/0"].
 
 ### 3. Risk Assessment
 
 Explain the risk identified by the Bash check and Claude Code.
 
-Write your answer here.
+tf-drift-check.sh flagged the ingress rule via jq schema matching, resulting in [FAIL] Found 1 open ingress rule(s) and setting Overall Status: FAIL. Claude evaluated the risk as critical because it publicly exposed internal endpoints.
 
 ### 4. Human-Approved Action
 
 Explain the action you reviewed and executed manually.
 
-Write your answer here.
+The proposed change was reviewed and rejected. The unapproved ingress block was manually deleted from main.tf, restoring the codebase to its baseline state without running terraform apply.
 
 ### 5. Verification
 
 Explain the evidence proving the environment returned to the intended state.
 
-Write your answer here.
+Executing tf-drift-check.sh following the fix returned exit code 0, confirming zero pending changes and producing an Overall Status: HEALTHY report saved to reports/resolved-report.txt.
 
 ### 6. Safety Decision
 
 Explain why Claude was allowed to gather and analyze evidence but not automatically perform infrastructure-changing actions.
 
-Write your answer here.
+Claude was limited to read-only evidence collection and analysis to ensure that state-changing actions require explicit human approval, preventing autonomous misconfiguration or resource destruction.
 
 ### 7. Agentic Loop Mapping
 
@@ -430,33 +434,39 @@ Explain how your workflow followed:
 Gather --> Analyze --> Human Act --> Verify
 ```
 
-Write your answer here.
+Gather: Executed tf-drift-check.sh to produce tfplan.binary and tfplan.json.
+
+Analyze: Invoked /tf-drift-review where jq and Claude parsed the plan for policy violations.
+
+Human Act: Reviewed the risk assessment and manually removed the unapproved rule from main.tf.
+
+Verify: Re-ran /tf-drift-review to confirm the plan returned to a clean baseline.
 
 ## Questions
 
 ### 1. What action did you execute to resolve the difference?
 
-Write your answer here.
+Manually removed the unapproved 0.0.0.0/0 ingress rule block from main.tf and saved the file.
 
 ### 2. Did you review `terraform plan` before taking action?
 
-Write your answer here.
+Yes, the output of terraform plan and reports/tfplan.json was thoroughly reviewed prior to taking corrective action.
 
 ### 3. What evidence proves the environment is now aligned?
 
-Write your answer here.
+Re-running tf-drift-check.sh generated reports/resolved-report.txt with Overall Status: HEALTHY - Infrastructure is aligned and safe and script exit code 0.
 
 ### 4. Why is a second drift review required after the fix?
 
-Write your answer here.
+A second review verifies that the remediation correctly restored the desired state without introducing secondary syntax errors, orphan dependencies, or unaligned resource attributes.
 
 ### 5. What could go wrong if an AI agent automatically applied every detected Terraform change?
 
-Write your answer here.
+An autonomous agent could apply unauthorized security holes, destroy live production databases during forced resource replacements, or roll out malformed configurations without human oversight.
 
 ### 6. In one sentence, explain the difference between asking an AI chatbot “Is my infrastructure okay?” and using this evidence-based Agentic AI workflow.
 
-Write your answer here.
+Asking a chatbot relies on conversational assumptions that can produce hallucinations, whereas an evidence-based agentic workflow roots its analysis in deterministic CLI execution, structured JSON schema parsing, and unbypassable safety gates.
 
 ---
 
